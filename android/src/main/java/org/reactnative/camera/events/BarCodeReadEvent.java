@@ -66,7 +66,7 @@ public class BarCodeReadEvent extends Event<BarCodeReadEvent> {
     rctEventEmitter.receiveEvent(getViewTag(), getEventName(), serializeEventData());
   }
 
-  private WritableMap serializeEventData() {
+  public WritableMap serializeEventData() {
     WritableMap event = Arguments.createMap();
     WritableMap eventOrigin = Arguments.createMap();
 

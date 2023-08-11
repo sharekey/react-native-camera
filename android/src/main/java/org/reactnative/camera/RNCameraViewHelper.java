@@ -317,6 +317,10 @@ public class RNCameraViewHelper {
       public void run() {
         BarCodeReadEvent event = BarCodeReadEvent.obtain(view.getId(), barCode, width,  height, compressedImage);
         reactContext.getNativeModule(UIManagerModule.class).getEventDispatcher().dispatchEvent(event);
+
+        reactContext
+          .getJSModule(DeviceEventManagerModule.RCTDeviceEventEmitter.class)
+          .emit("barCodeReadEvent", event.serializeEventData());
       }
     });
   }
